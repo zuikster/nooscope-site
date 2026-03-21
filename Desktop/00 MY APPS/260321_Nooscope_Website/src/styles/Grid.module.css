@@ -1,0 +1,33 @@
+.grid {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  display: none;
+}
+
+.grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--col);
+  width: 1px;
+  background: var(--green);
+}
+
+.grid::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--row);
+  height: 1px;
+  background: var(--green);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    display: block;
+  }
+}
