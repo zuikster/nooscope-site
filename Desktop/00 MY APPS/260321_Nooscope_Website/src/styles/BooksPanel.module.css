@@ -70,11 +70,12 @@
     width: 100%;
   }
 
+  /* Thumbnail + text move as one unit, right-aligned to Books position */
   .item {
-    width: 100%;
+    width: fit-content;
+    margin-left: auto;
     gap: 1.25rem;
     padding: 2rem 0;
-    box-sizing: border-box;
     align-items: flex-start;
   }
 
@@ -82,11 +83,9 @@
     flex: 0 0 180px;
   }
 
-  /* 55ch wide, pushed to the panel's right edge = BOOKS position */
   .desc {
     flex: 0 0 55ch;
     min-width: 0;
     max-width: 55ch;
-    margin-left: auto;
   }
 }
