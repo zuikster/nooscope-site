@@ -14,6 +14,7 @@
   left: var(--y-line);
   width: 1px;
   background: var(--green);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .grid::after {

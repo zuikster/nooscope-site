@@ -15,9 +15,10 @@
   .logo {
     position: absolute;
     /* Centered horizontally in the Y-line column */
-    left: calc(var(--y-line) / 2);
+    left: calc(var(--y-line-base) / 2);
     transform: translateX(-50%);
     /* Raised 20% up from center: at 30% of quadrant height from top */
     top: calc(var(--x-line) * 0.15);
+    z-index: 2;
   }
 }
