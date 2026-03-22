@@ -74,8 +74,8 @@
   /* Small horizontal text label, top-left of lower-left quadrant */
   .trigger {
     position: absolute;
-    top: 18px;
-    left: 20px;
+    top: calc(18px + 2%);
+    left: calc(20px + 6%);
     border: none;
     display: inline;
     font-size: 1.53rem;

@@ -15,7 +15,9 @@
   font-family: 'Droulers', sans-serif;
   color: var(--green);
   line-height: 1.6;
-  font-size: 0.95rem;
+  font-size: 1.235rem;
+  max-width: 75ch;
+  text-align: justify;
 }
 
 .copy p + p {
@@ -26,8 +28,8 @@
   .panel {
     position: absolute;
     top: var(--x-line);
-    left: var(--y-line);
-    width: calc(100% - var(--y-line));
+    left: calc(92% - (100% - var(--y-line)) * 0.425);
+    width: calc((100% - var(--y-line)) * 0.425);
     height: calc(100% - var(--x-line));
     min-height: unset;
     padding: 2rem;

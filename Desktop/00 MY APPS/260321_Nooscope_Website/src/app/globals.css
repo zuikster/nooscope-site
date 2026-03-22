@@ -10,7 +10,7 @@
 
 
 :root {
-  --y-line: max(14%, 270px);
+  --y-line: max(19%, 270px);
   --x-line: 25%;
   --green: #6ba244;
 }
