@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: var(--col);
+  left: var(--y-line);
   width: 1px;
   background: var(--green);
 }
@@ -21,8 +21,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: var(--row);
-  height: 1px;
+  top: var(--x-line);
+  height: 3px;
   background: var(--green);
 }
 

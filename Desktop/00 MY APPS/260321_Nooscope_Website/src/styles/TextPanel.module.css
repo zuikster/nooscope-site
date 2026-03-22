@@ -25,10 +25,10 @@
 @media (min-width: 768px) {
   .panel {
     position: absolute;
-    top: var(--row);
-    left: var(--col);
-    width: calc(100% - var(--col));
-    height: calc(100% - var(--row));
+    top: var(--x-line);
+    left: var(--y-line);
+    width: calc(100% - var(--y-line));
+    height: calc(100% - var(--x-line));
     min-height: unset;
     padding: 2rem;
   }

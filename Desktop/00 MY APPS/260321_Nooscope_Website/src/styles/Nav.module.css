@@ -10,23 +10,32 @@
   text-decoration: none;
   color: var(--green);
   white-space: nowrap;
-  font-size: 0.9rem;
+  font-size: 1.62rem;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  display: block;
 }
 
 .nav a:hover {
-  opacity: 0.7;
+  font-style: italic;
 }
 
 @media (min-width: 768px) {
   .nav {
     position: absolute;
-    top: 0;
-    left: var(--col);
-    width: calc(100% - var(--col));
-    height: var(--row);
-    padding: 0 2rem;
-    justify-content: flex-end;
-    overflow: hidden;
+    top: 3.75%;
+    right: 5%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+
+  /* Last item anchored near the X line (--x-line ≈ 40%).
+     22px offset matches the logo SVG height in Logo.module.css. */
+  .nav li:last-child {
+    position: fixed;
+    top: calc(20% - 22px);
+    right: 5%;
   }
 }

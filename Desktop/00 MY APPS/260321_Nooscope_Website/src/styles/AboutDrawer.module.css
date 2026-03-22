@@ -17,12 +17,13 @@
   color: var(--green);
   cursor: pointer;
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 1.62rem;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .trigger:hover {
-  opacity: 0.7;
+  font-style: italic;
 }
 
 /* Slide down on mobile */
@@ -64,33 +65,31 @@
 @media (min-width: 768px) {
   .container {
     position: absolute;
-    top: var(--row);
+    top: var(--x-line);
     left: 0;
-    width: var(--col);
-    height: calc(100% - var(--row));
+    width: var(--y-line);
+    height: calc(100% - var(--x-line));
   }
 
-  /* Vertical label button fills the full lower-left quadrant */
+  /* Small horizontal text label, top-left of lower-left quadrant */
   .trigger {
     position: absolute;
-    inset: 0;
+    top: 18px;
+    left: 20px;
     border: none;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
+    display: inline;
+    font-size: 1.53rem;
+    text-transform: uppercase;
+    padding: 0;
   }
 
   /* Slide in from left on desktop */
   .overlay {
     position: fixed;
-    top: var(--row);
+    top: var(--x-line);
     left: 0;
-    width: var(--col);
-    height: calc(100% - var(--row));
+    width: var(--y-line);
+    height: calc(100% - var(--x-line));
     z-index: 30;
     max-height: none;
     overflow-y: auto;
