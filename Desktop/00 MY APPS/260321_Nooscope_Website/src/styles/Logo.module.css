@@ -14,8 +14,8 @@
 @media (min-width: 768px) {
   .logo {
     position: absolute;
-    /* Left-aligned with a small spacer from the viewport edge */
-    left: 1.25rem;
+    /* Same left offset as the About trigger */
+    left: calc(var(--y-line-base) * 0.06 + 20px);
     transform: none;
     top: calc(var(--x-line) * 0.15);
     z-index: 2;
