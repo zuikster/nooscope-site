@@ -8,14 +8,27 @@ import Nav from './Nav';
 import AboutDrawer from './AboutDrawer';
 import TextPanel from './TextPanel';
 import BooksPanel from './BooksPanel';
+import BookSlideshow from './BookSlideshow';
 import styles from '@/styles/page.module.css';
 
 export default function AppShell() {
   const [booksOpen, setBooksOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
 
   function toggleBooks() {
     setBooksOpen(o => !o);
+    setSelectedBook(null);
   }
+
+  function handleBookSelect(book) {
+    setSelectedBook(book);
+  }
+
+  function handleSlideshowClose() {
+    setSelectedBook(null);
+  }
+
+  const showSlideshow = booksOpen && selectedBook;
 
   return (
     <>
@@ -29,7 +42,9 @@ export default function AppShell() {
       </header>
       <main className={styles.mobileMain}>
         {!booksOpen && <AboutDrawer />}
-        {booksOpen ? <BooksPanel open /> : <TextPanel />}
+        {booksOpen
+          ? <BooksPanel open onBookSelect={handleBookSelect} />
+          : <TextPanel />}
       </main>
 
       {/* Desktop layout */}
@@ -38,7 +53,10 @@ export default function AppShell() {
         <Nav onBooksClick={toggleBooks} booksOpen={booksOpen} />
         <AboutDrawer hidden={booksOpen} />
         <TextPanel hidden={booksOpen} />
-        <BooksPanel open={booksOpen} />
+        {!showSlideshow && (
+          <BooksPanel open={booksOpen} onBookSelect={handleBookSelect} />
+        )}
+        <BookSlideshow book={selectedBook} onClose={handleSlideshowClose} />
       </div>
     </>
   );
