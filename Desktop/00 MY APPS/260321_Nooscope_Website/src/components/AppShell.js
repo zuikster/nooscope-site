@@ -53,10 +53,20 @@ export default function AppShell() {
         <Nav onBooksClick={toggleBooks} booksOpen={booksOpen} />
       </header>
       <main className={styles.mobileMain}>
-        {!booksOpen && <AboutDrawer />}
-        {booksOpen
-          ? <BooksPanel open onBookSelect={handleBookSelect} />
-          : <TextPanel />}
+        {showSlideshow ? (
+          /* Book detail: images stacked, text below */
+          <>
+            <BookSlideshow book={selectedBook} onClose={handleSlideshowClose} mobile />
+            <BookInfo book={selectedBook} />
+          </>
+        ) : booksOpen ? (
+          <BooksPanel open onBookSelect={handleBookSelect} />
+        ) : (
+          <>
+            <AboutDrawer />
+            <TextPanel />
+          </>
+        )}
       </main>
 
       {/* Desktop layout */}

@@ -47,6 +47,38 @@
   display: block;
 }
 
+/* ── Mobile stacked variant (images + text in document flow) ─── */
+
+.containerMobile {
+  position: relative;
+  width: 100%;
+  background: white;
+}
+
+/* Back button: absolute within the first image area */
+.containerMobile .close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.slidesMobile {
+  width: 100%;
+}
+
+.slideMobile {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slideMobile img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 /* ── Desktop: right half only, full height ───────────────────── */
 
 @media (min-width: 768px) {
