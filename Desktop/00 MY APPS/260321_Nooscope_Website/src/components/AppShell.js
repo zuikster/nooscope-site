@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Background from './Background';
 import Grid from './Grid';
 import Logo from './Logo';
@@ -30,6 +30,17 @@ export default function AppShell() {
   }
 
   const showSlideshow = booksOpen && selectedBook;
+
+  /* Expand left quadrant by 20vw when in book detail state */
+  useEffect(() => {
+    const root = document.documentElement;
+    if (showSlideshow) {
+      root.style.setProperty('--y-line', 'calc(var(--y-line-base) + 20%)');
+    } else {
+      root.style.removeProperty('--y-line');
+    }
+    return () => root.style.removeProperty('--y-line');
+  }, [showSlideshow]);
 
   return (
     <>

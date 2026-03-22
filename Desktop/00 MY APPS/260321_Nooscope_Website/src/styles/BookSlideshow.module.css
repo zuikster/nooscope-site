@@ -58,6 +58,7 @@
     right: 0;
     bottom: 0;
     height: 100%;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .close {
