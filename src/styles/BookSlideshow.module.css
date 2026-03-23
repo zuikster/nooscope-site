@@ -1,0 +1,121 @@
+/* ── Mobile: full screen overlay ─────────────────────────────── */
+
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: var(--color-surface);
+}
+
+.close {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 46;
+  background: transparent;
+  border: none;
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
+
+.slides {
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  height: 100vh;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Mobile stacked variant (images + text in document flow) ─── */
+
+.containerMobile {
+  position: relative;
+  width: 100%;
+  background: var(--color-surface);
+  animation: sheetUp var(--duration-fast) ease both;
+}
+
+@keyframes sheetUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Back button: absolute within the first image area */
+.containerMobile .close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.slidesMobile {
+  width: 100%;
+}
+
+.slideMobile {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slideMobile img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── Desktop: right half only, full height ───────────────────── */
+
+@media (min-width: 1024px) {
+  .container {
+    /* Covers both upper-right and lower-right quadrants */
+    position: absolute;
+    top: 0;
+    left: var(--y-line);
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    transition: left var(--duration-base) var(--ease-out);
+  }
+
+  .close {
+    /* Sit in the upper-right area, above the grid line */
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .slide {
+    /* One image = full height of the right-half container */
+    height: 100%;
+  }
+}

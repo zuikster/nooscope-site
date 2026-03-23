@@ -1,0 +1,31 @@
+.logo {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.logoSvg {
+  fill: var(--color-primary);
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    position: absolute;
+    left: calc(var(--y-line-base) * 0.06 + 20px);
+    transform: none;
+    top: calc(var(--x-line) * 0.15);
+    z-index: 2;
+  }
+
+  .logoSvg {
+    height: 43px;
+  }
+}

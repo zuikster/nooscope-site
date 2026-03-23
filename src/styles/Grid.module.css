@@ -1,0 +1,34 @@
+.grid {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  display: none;
+}
+
+.grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--y-line);
+  width: 1px;
+  background: var(--color-primary);
+  transition: left var(--duration-base) var(--ease-out);
+}
+
+.grid::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--x-line);
+  height: 3px;
+  background: var(--color-primary);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    display: block;
+  }
+}

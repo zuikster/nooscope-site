@@ -1,0 +1,57 @@
+/* ── Mobile header ───────────────────────────────────────────── */
+
+.mobileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-surface);
+}
+
+/* ── Desktop chrome (Logo, Nav, About trigger) ──────────────── */
+
+.desktopChrome {
+  display: none;
+}
+
+/* ── Main content area ──────────────────────────────────────── */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  z-index: 40;
+  background: var(--color-surface);
+}
+
+/* ── Desktop overrides ──────────────────────────────────────── */
+
+@media (min-width: 1024px) {
+  .mobileHeader {
+    display: none;
+  }
+
+  .desktopChrome {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+  }
+
+  .main {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .main > * {
+    pointer-events: auto;
+  }
+}
