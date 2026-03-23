@@ -3,12 +3,17 @@
 import { useState } from 'react';
 import styles from '@/styles/Nav.module.css';
 
-export default function Nav({ onBooksClick, booksOpen }) {
+export default function Nav({ onBooksClick, booksOpen, onAboutClick, aboutOpen }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   function handleBooksClick() {
     setMenuOpen(false);
     onBooksClick();
+  }
+
+  function handleAboutClick() {
+    setMenuOpen(false);
+    if (onAboutClick) onAboutClick();
   }
 
   return (
@@ -46,6 +51,16 @@ export default function Nav({ onBooksClick, booksOpen }) {
             aria-pressed={booksOpen}
           >
             Books
+          </button>
+        </li>
+        <li className={styles.mobileOnly}>
+          <button
+            className={`${styles.navBtn} ${aboutOpen ? styles.active : ''}`}
+            onClick={handleAboutClick}
+            type="button"
+            aria-pressed={aboutOpen}
+          >
+            About
           </button>
         </li>
       </ul>

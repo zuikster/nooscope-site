@@ -63,7 +63,12 @@ export default function AppShell() {
       {/* Mobile layout */}
       <header className={styles.mobileHeader}>
         <Logo />
-        <Nav onBooksClick={toggleBooks} booksOpen={booksOpen} />
+        <Nav
+          onBooksClick={toggleBooks}
+          booksOpen={booksOpen}
+          onAboutClick={toggleAbout}
+          aboutOpen={aboutOpen}
+        />
       </header>
       <main id="main-content" className={styles.mobileMain}>
         {showSlideshow ? (
@@ -73,11 +78,10 @@ export default function AppShell() {
           </>
         ) : booksOpen ? (
           <BooksPanel open onBookSelect={handleBookSelect} />
+        ) : aboutOpen ? (
+          <AboutDrawer mobile />
         ) : (
-          <>
-            <AboutDrawer />
-            <TextPanel />
-          </>
+          <TextPanel />
         )}
       </main>
 
