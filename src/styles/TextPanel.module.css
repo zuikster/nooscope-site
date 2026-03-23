@@ -48,7 +48,7 @@
   .copy {
     font-size: var(--font-size-base);
     line-height: var(--line-height-desktop);
-    text-align: justify;
+    text-align: left;
     max-width: 75ch;
   }
 
