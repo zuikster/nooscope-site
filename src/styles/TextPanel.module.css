@@ -31,10 +31,12 @@
     position: absolute;
     top: var(--x-line);
     left: var(--y-line);
-    width: calc(100% - var(--y-line));
+    right: 18%;
+    width: auto;
     height: calc(100% - var(--x-line));
     min-height: unset;
     padding: 2rem;
+    overflow-x: hidden;
     margin-top: 0;
     border-radius: 0;
     background: transparent;
