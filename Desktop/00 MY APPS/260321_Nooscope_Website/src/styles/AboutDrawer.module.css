@@ -129,8 +129,8 @@
     width: 50ch;
     max-height: calc(93% - 18px);
     overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--green) transparent;
     font-family: 'Droulers', sans-serif;
     color: var(--green);
     font-size: 1.235rem;
@@ -142,7 +142,16 @@
   }
 
   .aboutPanel::-webkit-scrollbar {
-    display: none;
+    width: 2px;
+  }
+
+  .aboutPanel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .aboutPanel::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 0;
   }
 
   .aboutPanel.aboutPanelOpen {
