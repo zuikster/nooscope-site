@@ -1,0 +1,58 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav a,
+.navBtn {
+  font-family: 'Droulers', sans-serif;
+  text-decoration: none;
+  color: var(--green);
+  white-space: nowrap;
+  font-size: 1.62rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  display: block;
+}
+
+/* Button reset for Books */
+.navBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav a:hover,
+.navBtn:hover {
+  font-style: italic;
+}
+
+/* Active state when books panel is open */
+.navBtn.active {
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 3.75%;
+    right: 10%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+
+  /* Last item anchored near the X line (--x-line ≈ 40%).
+     22px offset matches the logo SVG height in Logo.module.css.
+     z-index keeps it on top of the book slideshow overlay. */
+  .nav li:last-child {
+    position: fixed;
+    top: calc(20% - 22px);
+    right: 10%;
+    z-index: 50;
+  }
+}

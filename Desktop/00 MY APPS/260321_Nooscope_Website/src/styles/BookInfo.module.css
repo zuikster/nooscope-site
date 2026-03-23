@@ -1,0 +1,116 @@
+/* ── Mobile base ─────────────────────────────────────────────── */
+
+.panel {
+  width: 100%;
+  padding: 1.25rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.panel::-webkit-scrollbar {
+  display: none;
+}
+
+.copy {
+  font-family: 'Droulers', sans-serif;
+  color: var(--green);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.copy p + p {
+  margin-top: 0.875rem;
+}
+
+.isbn {
+  margin-top: 1.5rem;
+}
+
+.editions,
+.exhibitions,
+.prices,
+.collections {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.editions li,
+.exhibitions li,
+.prices li,
+.collections li {
+  line-height: 1.7;
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.editions li::before,
+.prices li::before,
+.collections li::before {
+  content: '– ';
+}
+
+.exhibitions li::before {
+  content: '– ';
+}
+
+.year {
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.year::before {
+  content: '' !important;
+  display: none;
+}
+
+.year {
+  padding-left: 0 !important;
+  text-indent: 0 !important;
+}
+
+.note {
+  margin-top: 0.875rem;
+}
+
+.sectionHead {
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+/* ── Desktop: lower-left quadrant ───────────────────────────── */
+
+@media (min-width: 768px) {
+  .panel {
+    position: absolute;
+    top: var(--x-line);
+    left: 0;
+    width: var(--y-line);
+    height: calc(100% - var(--x-line));
+    padding: 1.5rem calc(var(--y-line-base) * 0.06 + 20px);
+    overflow-y: auto;
+    background: white;
+    z-index: 44;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .copy {
+    font-size: 1.235rem;
+    line-height: 1.6;
+  }
+
+  .copy p + p {
+    margin-top: 1rem;
+  }
+
+  .isbn {
+    margin-top: 2rem;
+  }
+
+  .sectionHead {
+    margin-top: 2rem;
+  }
+}

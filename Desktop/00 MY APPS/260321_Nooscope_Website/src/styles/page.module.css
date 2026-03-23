@@ -1,0 +1,45 @@
+/* ── Mobile layout ───────────────────────────────────────────── */
+
+.mobileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--green);
+  position: relative;
+  z-index: 40;
+}
+
+.mobileMain {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  z-index: 40;
+}
+
+/* ── Desktop: hide mobile, show fixed UI layer ───────────────── */
+
+@media (min-width: 768px) {
+  .mobileHeader,
+  .mobileMain {
+    display: none;
+  }
+}
+
+/* ── Desktop UI fixed layer ──────────────────────────────────── */
+
+.ui {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .ui {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+  }
+}
+

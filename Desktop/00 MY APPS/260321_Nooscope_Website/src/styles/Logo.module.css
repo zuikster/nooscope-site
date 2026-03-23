@@ -1,0 +1,23 @@
+.logo {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.logoSvg {
+  fill: var(--green);
+  height: 43px;
+  width: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    position: absolute;
+    /* Same left offset as the About trigger */
+    left: calc(var(--y-line-base) * 0.06 + 20px);
+    transform: none;
+    top: calc(var(--x-line) * 0.15);
+    z-index: 2;
+  }
+}
