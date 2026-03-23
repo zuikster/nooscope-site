@@ -25,6 +25,7 @@ function AboutText() {
       <p>He is the co-founder of FOTODEMIC, an online platform for innovative visual strategies, and the founder and executive producer of Living Room, a monthly public program for ICP alumni.</p>
 
       <p>For inquiries:<br />nooscope.press@gmail.com</p>
+      <div style={{ height: '3rem' }} aria-hidden="true" />
     </>
   );
 }
