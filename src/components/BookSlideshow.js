@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import styles from '@/styles/BookSlideshow.module.css';
 
-export default function BookSlideshow({ book, onClose, mobile = false }) {
+export default function BookSlideshow({ book, mobile = false }) {
   const slidesRef = useRef(null);
 
-  /* Reset scroll to top whenever a new book opens */
   useEffect(() => {
     if (slidesRef.current) slidesRef.current.scrollTop = 0;
   }, [book]);
@@ -27,13 +27,13 @@ export default function BookSlideshow({ book, onClose, mobile = false }) {
 
   return (
     <div className={containerClass}>
-      <button
+      <Link
+        href="/books"
         className={styles.close}
-        onClick={onClose}
         aria-label="Back to books list"
       >
         ←
-      </button>
+      </Link>
 
       <div className={slidesClass} ref={slidesRef}>
         {book.images.map((src, i) => (
