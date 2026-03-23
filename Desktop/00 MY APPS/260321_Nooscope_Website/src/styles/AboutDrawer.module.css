@@ -120,17 +120,16 @@
     display: none;
   }
 
-  /* Desktop about text panel — stretches to Y line so scrollbar sits against it */
+  /* Desktop about text panel — fixed to base column, 50ch wide */
   .aboutPanel {
     display: block;
     position: absolute;
     top: calc(18px + 7%);
     left: calc(var(--y-line-base) * 0.09 + 20px);
-    right: 0;
+    width: 50ch;
     max-height: calc(93% - 18px);
     overflow-y: auto;
-    padding-right: 1rem;
-    scrollbar-width: auto;
+    scrollbar-width: thin;
     scrollbar-color: var(--green) transparent;
     font-family: 'Droulers', sans-serif;
     color: var(--green);
@@ -143,7 +142,7 @@
   }
 
   .aboutPanel::-webkit-scrollbar {
-    width: 8px;
+    width: 2px;
   }
 
   .aboutPanel::-webkit-scrollbar-track {
@@ -153,8 +152,6 @@
   .aboutPanel::-webkit-scrollbar-thumb {
     background: var(--green);
     border-radius: 0;
-    min-height: 8px;
-    max-height: 8px;
   }
 
   .aboutPanel.aboutPanelOpen {
