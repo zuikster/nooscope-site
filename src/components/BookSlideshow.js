@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/BookSlideshow.module.css';
 
-export default function BookSlideshow({ book, mobile = false }) {
+export default function BookSlideshow({ book, mobile = false, showClose = true }) {
   const slidesRef = useRef(null);
 
   useEffect(() => {
@@ -27,13 +27,15 @@ export default function BookSlideshow({ book, mobile = false }) {
 
   return (
     <div className={containerClass}>
-      <Link
-        href="/books"
-        className={styles.close}
-        aria-label="Back to books list"
-      >
-        ←
-      </Link>
+      {showClose && (
+        <Link
+          href="/books"
+          className={styles.close}
+          aria-label="Back to books list"
+        >
+          ←
+        </Link>
+      )}
 
       <div className={slidesClass} ref={slidesRef}>
         {book.images.map((src, i) => (

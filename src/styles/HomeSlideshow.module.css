@@ -1,0 +1,10 @@
+/* Show book slideshow overlay on mobile only */
+.mobileOnly {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .mobileOnly {
+    display: none;
+  }
+}
