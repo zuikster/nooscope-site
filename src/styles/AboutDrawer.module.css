@@ -8,7 +8,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   background: var(--color-surface);
-  animation: sheetUp var(--duration-fast) ease both;
+  animation: sheetUp var(--duration-base) ease-in-out both;
 }
 
 .mobileSheet::-webkit-scrollbar {
@@ -100,8 +100,8 @@
     opacity: 0;
     pointer-events: none;
     transition:
-      opacity var(--duration-base) var(--ease-out),
-      width var(--duration-base) var(--ease-out);
+      opacity var(--duration-base) ease-in-out,
+      width var(--duration-base) ease-in-out;
   }
 
   .fill.fillOpen {
@@ -146,10 +146,10 @@
     color: var(--color-primary);
     font-size: var(--font-size-base);
     line-height: var(--line-height-desktop);
-    text-align: justify;
+    text-align: left;
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--duration-fast) ease 0.15s;
+    transition: opacity var(--duration-base) ease-in-out 0.1s;
   }
 
   .aboutPanel::-webkit-scrollbar {

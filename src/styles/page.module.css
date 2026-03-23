@@ -40,7 +40,12 @@
     display: block;
     position: fixed;
     inset: 0;
-    z-index: 40;
+    z-index: 41;
+    pointer-events: none;
+  }
+
+  .desktopChrome > * {
+    pointer-events: auto;
   }
 
   .main {
