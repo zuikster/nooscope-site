@@ -1,5 +1,5 @@
-import AppShell from '@/components/AppShell';
+import TextPanel from '@/components/TextPanel';
 
 export default function Home() {
-  return <AppShell />;
+  return <TextPanel />;
 }
