@@ -41,7 +41,8 @@
 }
 
 .overlay.open {
-  max-height: 80vh;
+  max-height: 70vh;
+  overflow-y: auto;
   opacity: 1;
 }
 
@@ -126,6 +127,10 @@
     top: calc(18px + 7%);
     left: calc(var(--y-line-base) * 0.09 + 20px);
     width: 50ch;
+    max-height: calc(93% - 18px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     font-family: 'Droulers', sans-serif;
     color: var(--green);
     font-size: 1.235rem;
@@ -134,6 +139,10 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease 0.15s;
+  }
+
+  .aboutPanel::-webkit-scrollbar {
+    display: none;
   }
 
   .aboutPanel.aboutPanelOpen {
