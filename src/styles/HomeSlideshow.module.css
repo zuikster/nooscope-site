@@ -69,6 +69,10 @@
     padding-top: 0;
   }
 
+  .glassPane {
+    display: contents;
+  }
+
   /* About section hidden on desktop — AboutDrawer handles it */
   .aboutSection {
     display: none;
