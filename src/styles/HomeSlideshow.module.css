@@ -19,9 +19,11 @@
   right: 0;
   bottom: 0;
   overflow-y: auto;
-  padding-top: 3.5rem;
+  padding-top: 60vh;
+  scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .textOverlay::-webkit-scrollbar {
