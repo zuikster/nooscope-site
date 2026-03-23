@@ -2,10 +2,24 @@
 
 .panel {
   width: 100%;
+  flex: 1;
   overflow-y: auto;
-  padding: 0 1.25rem 2rem;
+  padding: 1rem;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background: var(--color-surface);
+  animation: sheetUp var(--duration-fast) ease both;
+}
+
+@keyframes sheetUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .panel::-webkit-scrollbar {
@@ -18,12 +32,17 @@
 
 .item {
   display: flex;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.item:last-child {
+  border-bottom: none;
 }
 
 .itemBtn {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: flex-start;
   background: none;
   border: none;
@@ -36,11 +55,17 @@
   width: 100%;
 }
 
+.itemBtn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
 .thumb {
-  flex: 0 0 120px;
+  flex: 0 0 90px;
   aspect-ratio: 1;
-  background: #c8c8c8;
+  background: var(--color-muted);
   overflow: hidden;
+  border-radius: 2px;
 }
 
 .thumb img {
@@ -52,43 +77,39 @@
 
 .desc {
   flex: 1;
-  font-family: 'Droulers', sans-serif;
-  color: var(--green);
-  font-size: 1.235rem;
-  line-height: 1.6;
-  text-align: justify;
-  max-width: 55ch;
-  text-shadow: 0 0 0.5px currentColor;
+  font-family: var(--font-family);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-desktop);
+  text-align: left;
 }
 
 /* ── Desktop overrides ───────────────────────────────────────── */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .panel {
     position: absolute;
     top: var(--x-line);
-    /* Gap between Y line and thumbnail */
     left: calc(var(--y-line) + 3rem);
-    /* Right edge aligns with the Books link at right: 10% */
     right: 10%;
-    /* Reset mobile width: 100% so left+right determine width */
     width: auto;
     height: calc(100% - var(--x-line));
     padding: 2rem 0;
     overflow-y: auto;
     overflow-x: hidden;
-    background: white;
+    background: var(--color-surface);
+    animation: none;
   }
 
   .list {
     width: 100%;
   }
 
-  /* Thumbnail + text move as one unit, right-aligned to Books position */
   .item {
     width: fit-content;
     margin-left: auto;
     padding: 2rem 0;
+    border-bottom: none;
   }
 
   .itemBtn {
@@ -97,11 +118,15 @@
 
   .thumb {
     flex: 0 0 180px;
+    border-radius: 0;
   }
 
   .desc {
     flex: 0 0 55ch;
     min-width: 0;
     max-width: 55ch;
+    font-size: var(--font-size-base);
+    text-align: justify;
+    text-shadow: 0 0 0.5px currentColor;
   }
 }

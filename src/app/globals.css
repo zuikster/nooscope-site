@@ -10,10 +10,47 @@
 
 
 :root {
+  /* ── Layout ──────────────────────────────────────────────── */
   --y-line-base: max(19%, 335px);
   --y-line: var(--y-line-base);
   --x-line: 25%;
-  --green: #6ba244;
+
+  /* ── Color ───────────────────────────────────────────────── */
+  --color-primary: #6ba244;
+  --color-bg: #0a0a0a;
+  --color-surface: #ffffff;
+  --color-muted: #e8e8e8;
+  --color-border: color-mix(in srgb, var(--color-primary) 20%, transparent);
+
+  /* ── Legacy alias (used widely) ──────────────────────────── */
+  --green: var(--color-primary);
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --font-family: 'Droulers', sans-serif;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-base: 1.235rem;
+  --font-size-nav: 1.25rem;
+  --font-size-nav-lg: 1.62rem;
+  --font-size-heading: 1.53rem;
+  --line-height-body: 1.65;
+  --line-height-desktop: 1.6;
+
+  /* ── Spacing ─────────────────────────────────────────────── */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.25rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
+
+  /* ── Animation ───────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 0.3s;
+  --duration-base: 0.4s;
+
+  /* ── Breakpoint (for reference, used in @media) ──────────── */
+  /* --bp-desktop: 1024px; */
 }
 
 *, *::before, *::after {
@@ -25,17 +62,64 @@
 html, body {
   width: 100%;
   min-height: 100%;
-  font-family: 'Droulers', sans-serif;
-  background-color: #0a0a0a;
-  color: var(--green);
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-primary);
   -webkit-font-smoothing: antialiased;
-  /* Hairline stroke to thicken glyphs — font has no bold variant */
   -webkit-text-stroke: 0.35px currentColor;
 }
 
-@media (min-width: 768px) {
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+@media (min-width: 1024px) {
   html, body {
     height: 100%;
     overflow: hidden;
   }
+}
+
+/* ── Focus visible ─────────────────────────────────────────── */
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Reduced motion ────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Skip to content ───────────────────────────────────────── */
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 9999;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  padding: var(--space-xs) var(--space-md);
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 0;
 }

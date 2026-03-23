@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git status:*)",
+      "Bash(awk 'NR>=11' /Users/soniacookbroen/Development/nooscope/src/app/globals.css)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}

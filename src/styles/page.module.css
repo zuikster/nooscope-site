@@ -4,10 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--green);
-  position: relative;
-  z-index: 40;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-surface);
 }
 
 .mobileMain {
@@ -17,11 +18,12 @@
   min-height: 0;
   position: relative;
   z-index: 40;
+  background: var(--color-surface);
 }
 
 /* ── Desktop: hide mobile, show fixed UI layer ───────────────── */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .mobileHeader,
   .mobileMain {
     display: none;
@@ -34,7 +36,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .ui {
     display: block;
     position: fixed;
@@ -42,4 +44,3 @@
     z-index: 40;
   }
 }
-

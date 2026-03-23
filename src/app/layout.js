@@ -3,6 +3,10 @@ import './globals.css';
 export const metadata = {
   title: 'Nooscope',
   description: 'Nooscope — Visual Instrument for Collective Intelligence',
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export const viewport = {

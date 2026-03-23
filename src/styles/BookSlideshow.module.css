@@ -4,7 +4,7 @@
   position: fixed;
   inset: 0;
   z-index: 45;
-  background: white;
+  background: var(--color-surface);
 }
 
 .close {
@@ -14,9 +14,9 @@
   z-index: 46;
   background: transparent;
   border: none;
-  font-family: 'Droulers', sans-serif;
+  font-family: var(--font-family);
   font-size: 1.5rem;
-  color: var(--green);
+  color: var(--color-primary);
   cursor: pointer;
   line-height: 1;
   padding: 0.25rem 0.5rem;
@@ -28,6 +28,8 @@
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
 .slides::-webkit-scrollbar {
@@ -52,7 +54,19 @@
 .containerMobile {
   position: relative;
   width: 100%;
-  background: white;
+  background: var(--color-surface);
+  animation: sheetUp var(--duration-fast) ease both;
+}
+
+@keyframes sheetUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Back button: absolute within the first image area */
@@ -81,7 +95,7 @@
 
 /* ── Desktop: right half only, full height ───────────────────── */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .container {
     /* Covers both upper-right and lower-right quadrants */
     position: absolute;
@@ -90,7 +104,7 @@
     right: 0;
     bottom: 0;
     height: 100%;
-    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: left var(--duration-base) var(--ease-out);
   }
 
   .close {

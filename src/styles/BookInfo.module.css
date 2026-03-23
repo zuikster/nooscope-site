@@ -2,10 +2,24 @@
 
 .panel {
   width: 100%;
-  padding: 1.25rem;
+  flex: 1;
+  padding: 1rem;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background: var(--color-surface);
+  animation: sheetUp var(--duration-fast) ease both;
+}
+
+@keyframes sheetUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .panel::-webkit-scrollbar {
@@ -13,19 +27,19 @@
 }
 
 .copy {
-  font-family: 'Droulers', sans-serif;
-  color: var(--green);
-  font-size: 0.85rem;
-  line-height: 1.7;
-  text-align: justify;
+  font-family: var(--font-family);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-body);
+  text-align: left;
 }
 
 .copy p + p {
-  margin-top: 0.875rem;
+  margin-top: 0.75rem;
 }
 
 .isbn {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .editions,
@@ -40,7 +54,7 @@
 .exhibitions li,
 .prices li,
 .collections li {
-  line-height: 1.7;
+  line-height: var(--line-height-body);
   padding-left: 1em;
   text-indent: -1em;
 }
@@ -71,11 +85,11 @@
 }
 
 .note {
-  margin-top: 0.875rem;
+  margin-top: 0.75rem;
 }
 
 .sectionHead {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-style: italic;
@@ -83,7 +97,7 @@
 
 /* ── Desktop: lower-left quadrant ───────────────────────────── */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .panel {
     position: absolute;
     top: var(--x-line);
@@ -92,14 +106,16 @@
     height: calc(100% - var(--x-line));
     padding: 1.5rem calc(var(--y-line-base) * 0.06 + 20px);
     overflow-y: auto;
-    background: white;
+    background: var(--color-surface);
     z-index: 44;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width var(--duration-base) var(--ease-out);
+    animation: none;
   }
 
   .copy {
-    font-size: 1.235rem;
-    line-height: 1.6;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-desktop);
+    text-align: justify;
   }
 
   .copy p + p {

@@ -30,26 +30,35 @@ function AboutText() {
   );
 }
 
-export default function AboutDrawer({ hidden }) {
+export default function AboutDrawer({ hidden, mobile }) {
   const [open, setOpen] = useState(false);
   const panelRef = useRef(null);
 
   useEffect(() => {
     if (open && panelRef.current) {
-      // Measure the panel's actual right edge and expand --y-line to fit
       const rect = panelRef.current.getBoundingClientRect();
       document.documentElement.style.setProperty('--y-line', `${Math.ceil(rect.right) + 40}px`);
     } else {
-      // Revert to the CSS default
       document.documentElement.style.removeProperty('--y-line');
     }
   }, [open]);
 
   if (hidden) return null;
 
+  /* Mobile: render as a full sheet */
+  if (mobile) {
+    return (
+      <div className={styles.mobileSheet}>
+        <div className={styles.copy}>
+          <AboutText />
+        </div>
+      </div>
+    );
+  }
+
+  /* Desktop: trigger + expandable panel */
   return (
     <>
-      {/* White fill: covers full left column on desktop */}
       <div className={`${styles.fill} ${open ? styles.fillOpen : ''}`} aria-hidden="true" />
 
       <div className={styles.container}>
@@ -62,14 +71,6 @@ export default function AboutDrawer({ hidden }) {
           About
         </button>
 
-        {/* Mobile: slide-down overlay */}
-        <div className={`${styles.overlay} ${open ? styles.open : ''}`} aria-hidden={!open}>
-          <div className={styles.copy}>
-            <AboutText />
-          </div>
-        </div>
-
-        {/* Desktop: text panel 5% below and 3% right of trigger */}
         <div
           ref={panelRef}
           className={`${styles.aboutPanel} ${open ? styles.aboutPanelOpen : ''}`}

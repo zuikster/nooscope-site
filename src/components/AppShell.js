@@ -14,10 +14,18 @@ import styles from '@/styles/page.module.css';
 
 export default function AppShell() {
   const [booksOpen, setBooksOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
 
   function toggleBooks() {
     setBooksOpen(o => !o);
+    setAboutOpen(false);
+    setSelectedBook(null);
+  }
+
+  function toggleAbout() {
+    setAboutOpen(o => !o);
+    setBooksOpen(false);
     setSelectedBook(null);
   }
 
@@ -44,35 +52,45 @@ export default function AppShell() {
 
   return (
     <>
+      {/* Skip to content link */}
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
+
       <Background white={booksOpen} />
       <Grid />
 
       {/* Mobile layout */}
       <header className={styles.mobileHeader}>
         <Logo />
-        <Nav onBooksClick={toggleBooks} booksOpen={booksOpen} />
+        <Nav
+          onBooksClick={toggleBooks}
+          booksOpen={booksOpen}
+          onAboutClick={toggleAbout}
+          aboutOpen={aboutOpen}
+        />
       </header>
-      <main className={styles.mobileMain}>
+      <main id="main-content" className={styles.mobileMain}>
         {showSlideshow ? (
-          /* Book detail: images stacked, text below */
           <>
             <BookSlideshow book={selectedBook} onClose={handleSlideshowClose} mobile />
             <BookInfo book={selectedBook} />
           </>
         ) : booksOpen ? (
           <BooksPanel open onBookSelect={handleBookSelect} />
+        ) : aboutOpen ? (
+          <AboutDrawer mobile />
         ) : (
-          <>
-            <AboutDrawer />
-            <TextPanel />
-          </>
+          <TextPanel />
         )}
       </main>
 
       {/* Desktop layout */}
-      <div className={styles.ui}>
-        <Logo />
-        <Nav onBooksClick={toggleBooks} booksOpen={booksOpen} />
+      <div className={styles.ui} aria-label="Desktop layout">
+        <header>
+          <Logo />
+          <Nav onBooksClick={toggleBooks} booksOpen={booksOpen} />
+        </header>
         <AboutDrawer hidden={booksOpen} />
         <TextPanel hidden={booksOpen} />
         {!showSlideshow && (

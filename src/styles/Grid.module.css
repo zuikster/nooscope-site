@@ -13,8 +13,8 @@
   bottom: 0;
   left: var(--y-line);
   width: 1px;
-  background: var(--green);
-  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--color-primary);
+  transition: left var(--duration-base) var(--ease-out);
 }
 
 .grid::after {
@@ -24,10 +24,10 @@
   right: 0;
   top: var(--x-line);
   height: 3px;
-  background: var(--green);
+  background: var(--color-primary);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .grid {
     display: block;
   }
