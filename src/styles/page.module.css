@@ -25,8 +25,8 @@
   flex: 1;
   min-height: 0;
   position: relative;
-  z-index: 40;
-  background: var(--color-surface);
+  z-index: 1;
+  background: transparent;
 }
 
 /* ── Desktop overrides ──────────────────────────────────────── */
