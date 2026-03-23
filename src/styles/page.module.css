@@ -1,4 +1,4 @@
-/* ── Mobile layout ───────────────────────────────────────────── */
+/* ── Mobile header ───────────────────────────────────────────── */
 
 .mobileHeader {
   display: flex;
@@ -11,7 +11,15 @@
   background: var(--color-surface);
 }
 
-.mobileMain {
+/* ── Desktop chrome (Logo, Nav, About trigger) ──────────────── */
+
+.desktopChrome {
+  display: none;
+}
+
+/* ── Main content area ──────────────────────────────────────── */
+
+.main {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -21,26 +29,34 @@
   background: var(--color-surface);
 }
 
-/* ── Desktop: hide mobile, show fixed UI layer ───────────────── */
+/* ── Desktop overrides ──────────────────────────────────────── */
 
 @media (min-width: 1024px) {
-  .mobileHeader,
-  .mobileMain {
+  .mobileHeader {
     display: none;
   }
-}
 
-/* ── Desktop UI fixed layer ──────────────────────────────────── */
-
-.ui {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .ui {
+  .desktopChrome {
     display: block;
     position: fixed;
     inset: 0;
+    z-index: 41;
+    pointer-events: none;
+  }
+
+  .desktopChrome > * {
+    pointer-events: auto;
+  }
+
+  .main {
+    position: fixed;
+    inset: 0;
     z-index: 40;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .main > * {
+    pointer-events: auto;
   }
 }

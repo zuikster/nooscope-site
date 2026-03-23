@@ -2,10 +2,11 @@
   width: 100%;
   flex: 1;
   overflow-y: auto;
-  padding: 1.25rem;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  background: var(--color-surface);
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
 .panel::-webkit-scrollbar {
@@ -29,18 +30,25 @@
   .panel {
     position: absolute;
     top: var(--x-line);
-    left: calc(92% - (100% - var(--y-line)) * 0.425);
-    width: calc((100% - var(--y-line)) * 0.425);
+    left: var(--y-line);
+    right: 18%;
+    width: auto;
     height: calc(100% - var(--x-line));
     min-height: unset;
     padding: 2rem;
+    overflow-x: hidden;
+    margin-top: 0;
+    border-radius: 0;
     background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    z-index: auto;
   }
 
   .copy {
     font-size: var(--font-size-base);
     line-height: var(--line-height-desktop);
-    text-align: justify;
+    text-align: left;
     max-width: 75ch;
   }
 

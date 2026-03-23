@@ -1,4 +1,5 @@
 import './globals.css';
+import LayoutShell from '@/components/LayoutShell';
 
 export const metadata = {
   title: 'Nooscope',
@@ -17,7 +18,9 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <LayoutShell>{children}</LayoutShell>
+      </body>
     </html>
   );
 }

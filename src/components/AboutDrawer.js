@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import styles from '@/styles/AboutDrawer.module.css';
 
-function AboutText() {
+export function AboutText() {
   return (
     <>
       <p><i>Nooscope</i> publishes books that center on meditative, introspective visual narratives. While rooted in documentary practice, <i>Nooscope</i> embraces ambiguity, symbolic density and open-ended storytelling. The press produces socially aware, philosophically inclined art objects that operate at the intersection of history, image-making techniques and personal narrative.</p>
@@ -30,9 +31,17 @@ function AboutText() {
   );
 }
 
-export default function AboutDrawer({ hidden, mobile }) {
-  const [open, setOpen] = useState(false);
+export default function AboutDrawer({ hidden }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isAboutRoute = pathname === '/about';
+  const [open, setOpen] = useState(isAboutRoute);
   const panelRef = useRef(null);
+
+  /* Sync open state with route */
+  useEffect(() => {
+    setOpen(isAboutRoute);
+  }, [isAboutRoute]);
 
   useEffect(() => {
     if (open && panelRef.current) {
@@ -45,18 +54,14 @@ export default function AboutDrawer({ hidden, mobile }) {
 
   if (hidden) return null;
 
-  /* Mobile: render as a full sheet */
-  if (mobile) {
-    return (
-      <div className={styles.mobileSheet}>
-        <div className={styles.copy}>
-          <AboutText />
-        </div>
-      </div>
-    );
+  function handleTrigger() {
+    if (open) {
+      router.push('/');
+    } else {
+      router.push('/about');
+    }
   }
 
-  /* Desktop: trigger + expandable panel */
   return (
     <>
       <div className={`${styles.fill} ${open ? styles.fillOpen : ''}`} aria-hidden="true" />
@@ -64,7 +69,7 @@ export default function AboutDrawer({ hidden, mobile }) {
       <div className={styles.container}>
         <button
           className={styles.trigger}
-          onClick={() => setOpen(o => !o)}
+          onClick={handleTrigger}
           aria-expanded={open}
           type="button"
         >

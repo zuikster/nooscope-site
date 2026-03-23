@@ -1,8 +1,9 @@
+import Link from 'next/link';
 import styles from '@/styles/Logo.module.css';
 
 export default function Logo() {
   return (
-    <a href="/" className={styles.logo} aria-label="Nooscope">
+    <Link href="/" className={styles.logo} aria-label="Nooscope">
       <svg
         viewBox="0 0 214.81 36.36"
         xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +19,6 @@ export default function Logo() {
         <path d="M148.92,36.36c-6.72,0-11.23-5.16-11.23-12.85s4.51-12.85,11.23-12.85,11.23,5.16,11.23,12.85-4.51,12.85-11.23,12.85ZM148.92,13.23c-4.43,0-6.41,3.17-6.41,10.28s1.98,10.28,6.41,10.28,6.41-3.17,6.41-10.28-1.98-10.28-6.41-10.28Z"/>
         <path d="M179.44,35.98h-16.79v-2.3h4.59V8.08h-4.59v-2.3h8.73v4.31c1.46-3.12,4.01-4.76,7.44-4.76,6.1,0,10.19,4.8,10.19,11.95s-4.1,11.95-10.19,11.95c-3.08,0-5.48-1.35-6.99-3.91v8.36h7.6v2.3ZM178.02,8.04c-4.22,0-6.18,2.94-6.18,9.24s1.96,9.25,6.18,9.25,6.14-2.85,6.14-9.25-1.89-9.24-6.14-9.24Z"/>
       </svg>
-    </a>
+    </Link>
   );
 }
