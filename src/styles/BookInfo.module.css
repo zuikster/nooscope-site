@@ -2,10 +2,23 @@
 
 .panel {
   width: 100%;
-  padding: 1.25rem;
+  padding: 1rem;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background: white;
+  animation: sheetUp 0.35s ease both;
+}
+
+@keyframes sheetUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .panel::-webkit-scrollbar {
@@ -15,17 +28,17 @@
 .copy {
   font-family: 'Droulers', sans-serif;
   color: var(--green);
-  font-size: 0.85rem;
-  line-height: 1.7;
-  text-align: justify;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  text-align: left;
 }
 
 .copy p + p {
-  margin-top: 0.875rem;
+  margin-top: 0.75rem;
 }
 
 .isbn {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .editions,
@@ -40,7 +53,7 @@
 .exhibitions li,
 .prices li,
 .collections li {
-  line-height: 1.7;
+  line-height: 1.65;
   padding-left: 1em;
   text-indent: -1em;
 }
@@ -71,11 +84,11 @@
 }
 
 .note {
-  margin-top: 0.875rem;
+  margin-top: 0.75rem;
 }
 
 .sectionHead {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-style: italic;
@@ -95,11 +108,13 @@
     background: white;
     z-index: 44;
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: none;
   }
 
   .copy {
     font-size: 1.235rem;
     line-height: 1.6;
+    text-align: justify;
   }
 
   .copy p + p {
