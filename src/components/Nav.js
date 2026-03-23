@@ -27,19 +27,17 @@ export default function Nav({ onBooksClick, booksOpen }) {
 
       {/* Menu items */}
       <ul className={`${styles.list} ${menuOpen ? styles.listOpen : ''}`}>
-        {!booksOpen && (
-          <li>
-            <a
-              href="https://buy.stripe.com/6oU28q3bp1qDg4q7Kgak008"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.navLink}
-              onClick={() => setMenuOpen(false)}
-            >
-              Store
-            </a>
-          </li>
-        )}
+        <li>
+          <a
+            href="https://buy.stripe.com/6oU28q3bp1qDg4q7Kgak008"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.navLink}
+            onClick={() => setMenuOpen(false)}
+          >
+            Store
+          </a>
+        </li>
         <li>
           <button
             className={`${styles.navBtn} ${booksOpen ? styles.active : ''}`}
